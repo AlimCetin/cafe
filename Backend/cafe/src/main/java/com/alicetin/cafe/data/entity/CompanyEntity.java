@@ -21,22 +21,21 @@ import java.io.Serializable;
 
 // ENTITY
 @Entity
-@Table(name = "User")
-public class UserEntity extends BaseEntity implements Serializable {
+@Table(name = "company")
+public class CompanyEntity extends BaseEntity implements Serializable {
 
     // Serileştirme
     public static final Long serialVersionUID=1L;
 
-    // Global Variable (4)
-    @Column(name = "user_name")
-    private String userName;
+    // Global Variable (6)
+    // Dikkat: message sonunda boşluk olmasın
+    // unique = true,
+    @Column(name = "company_id")
+    protected  Long companyId;
 
-    @Column(name = "user_email")
-    private String userEmail;
+    @Column(name = "food")
+    private String food;
 
-    @Column(name = "user_password")
-    private String userPassword;
-
-    @Column(name = "user_type")
-    private String userType;
+    @Column(name = "food_price")
+    private Float price;
 } //end class

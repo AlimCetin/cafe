@@ -4,15 +4,13 @@ import com.alicetin.cafe.data.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.Serializable;
 
 // LOMBOK
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Log4j2
 @AllArgsConstructor
@@ -21,24 +19,19 @@ import java.io.Serializable;
 
 // ENTITY
 @Entity
-@Table(name = "User")
+@Table(name = "customer")
 public class CustomerEntity extends BaseEntity implements Serializable {
 
     // Serileştirme
     public static final Long serialVersionUID=1L;
 
-    // Global Variable (6)
-    // Dikkat: message sonunda boşluk olmasın
-    // unique = true,
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "customer_id")
+    protected  Long customerId;
 
-    @Column(name = "user_email")
-    private String registerEmail;
+    @Column(name = "food_list")
+    private String foodList;
 
-    @Column(name = "user_password")
-    private String userPassword;
+    @Column(name = "company")
+    private String company;
 
-    @Column(name = "user_type")
-    private Boolean registerIsPassive=false;
 } //end class
