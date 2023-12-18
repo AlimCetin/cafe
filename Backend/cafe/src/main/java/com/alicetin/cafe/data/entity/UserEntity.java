@@ -21,7 +21,7 @@ import java.io.Serializable;
 
 // ENTITY
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 public class UserEntity extends BaseEntity implements Serializable {
 
     // Serileştirme

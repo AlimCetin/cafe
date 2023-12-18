@@ -17,11 +17,7 @@ public class AllBean {
         return new ModelMapperBeanClass();
     }
 
-    // Masking Password Encoder
-    @Bean(initMethod = "passwordEncoderBeforeBeanMethod",destroyMethod ="passwordEncoderAfterBeanMethod")
-    public PasswordEncoderBeanClass passwordEncoderBeanClass(){
-        return new PasswordEncoderBeanClass();
-    }
+
 
     // Swagger
     @Bean(initMethod = "swaggerOpenApiBeforeBeanMethod",destroyMethod ="swaggerOpenApiAfterBeanMethod")

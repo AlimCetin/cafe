@@ -2,7 +2,6 @@ package com.alicetin.cafe.business.services.impl;
 
 
 import com.alicetin.cafe.bean.ModelMapperBeanClass;
-import com.alicetin.cafe.bean.PasswordEncoderBeanClass;
 import com.alicetin.cafe.business.dto.UserDto;
 import com.alicetin.cafe.business.services.IUserServices;
 import com.alicetin.cafe.data.entity.UserEntity;
@@ -29,7 +28,6 @@ public class UserImpl implements IUserServices<UserDto, UserEntity> {
     private final IUserRepository iUserRepository;
     private final ModelMapperBeanClass modelMapperBeanClass;
 
-    private final PasswordEncoderBeanClass passwordEncoderBeanClass;
 
     @Override
     public UserDto entityToDto(UserEntity userEntity) {
@@ -59,7 +57,6 @@ public class UserImpl implements IUserServices<UserDto, UserEntity> {
             if (userDto != null) {
                 UserEntity registerEntity = dtoToEntity(userDto);
                 // Password Encoder Bean
-                passwordEncoderBeanClass.passwordEncoderMethod().encode(userDto.getUserPassword());
                 iUserRepository.save(registerEntity);
                 // Dto Set(id ve date)
                 userDto.setId(registerEntity.getId());
