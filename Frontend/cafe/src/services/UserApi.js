@@ -10,7 +10,7 @@ class UserApi {
     // SEARCH  EMAIL
     //@GetMapping("/search")
     userFindByEmail(userEmail) {
-        return axios.get((`${PERSIST_URL}/search?userEmail=${userEmail}`));
+        return  axios.get((`${PERSIST_URL}/search?userEmail=${userEmail}`));
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -23,7 +23,7 @@ class UserApi {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userDto),
-        })
+        });
     }
 } //end class
 

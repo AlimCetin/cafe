@@ -15,7 +15,7 @@ public interface IUserServices<D,E>{
     ////////////////////////////////////////////////////////////
     // LOGIN
     // FIND E mail
-    public D userFindByEmail(String userEmail);
+    public List<D> userFindByEmail(String userEmail);
 
     ////////////////////////////////////////////////////////////
     //  REGISTER C R U D

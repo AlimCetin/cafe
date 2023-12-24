@@ -6,8 +6,8 @@ import UserApi from '../services/UserApi';
 export default function Register() {
 
     const navigate = useNavigate();
-    const [email, setemail] = useState("");
-    const [password, setpassword] = useState("");
+    const [email, setemail] = useState();
+    const [password, setpassword] = useState();
     const [userName, setUserName] = useState();
     const [userType, setUserType] = useState();
 
@@ -65,11 +65,11 @@ export default function Register() {
                             <div className="mb-3">
                                 <select className="form-select" onClick={userTypeOnClick} aria-label="Default select example">
                                     <option selected="">Kullanıcının Türü</option>
-                                    <option value={1}>Customer</option>
-                                    <option value={2}>Company</option>
+                                    <option value={"Customer"}>Customer</option>
+                                    <option value={"Company"}>Company</option>
                                 </select>
                             </div>
-                            <div className="text-center"><button type="submit" className="btn btn-color px-5 mb-5 w-100" onClick={registerOnClick}>Register</button></div>
+                            <div className="text-center"><button type="submit" className="btn btn-color px-5 mb-5 w-100" onClick={()=>registerOnClick}>Register</button></div>
                         </form>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ class CompanyApi {
     // SEARCH  NAME
     //@GetMapping("/search")
     companyFindBycompanyId(companyId) {
-        return axios.get((`${PERSIST_URL}/search?userEmail=${companyId}`));
+        return axios.get((`${PERSIST_URL}/search?id=${companyId}`));
     }
 
     ///////////////////////////////////////////////////////////////////////////

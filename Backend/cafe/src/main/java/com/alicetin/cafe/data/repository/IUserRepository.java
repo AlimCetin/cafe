@@ -5,8 +5,6 @@ import com.alicetin.cafe.data.entity.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 // 3 2 1 8
 
 // CrudRepository
@@ -14,6 +12,6 @@ import java.util.Optional;
 // PagingAndSortingRepository
 @Repository
 public interface IUserRepository extends CrudRepository<UserEntity,Long> {
-    Optional<UserEntity> findByuserEmail(String userEmail);
+    Iterable<UserEntity> findByuserEmail(String userEmail);
 
 } //end interface

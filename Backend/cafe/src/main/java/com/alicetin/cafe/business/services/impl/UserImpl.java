@@ -9,11 +9,11 @@ import com.alicetin.cafe.data.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.List;
 
 // LOMBOK
 @RequiredArgsConstructor
@@ -25,6 +25,7 @@ import java.util.UUID;
 public class UserImpl implements IUserServices<UserDto, UserEntity> {
 
     // Injection
+    @Autowired
     private final IUserRepository iUserRepository;
     private final ModelMapperBeanClass modelMapperBeanClass;
 
@@ -40,15 +41,14 @@ public class UserImpl implements IUserServices<UserDto, UserEntity> {
     }
     //Find By userEmail
     @Override
-    public UserDto userFindByEmail(String userEmail) {
-        Optional<UserEntity> loginFindByUserEmail=iUserRepository.findByuserEmail(userEmail);
-        UserDto userDto=entityToDto(loginFindByUserEmail.get());
-        if(loginFindByUserEmail.isPresent()){
-            return userDto;
+    public List<UserDto> userFindByEmail(String userEmail) {
+            Iterable<UserEntity> registerEntityIterable = iUserRepository.findByuserEmail(userEmail);            List<UserDto> registerDtoList=new ArrayList<>();
+            for(UserEntity entity: registerEntityIterable ){
+                // Entity Listesini ==> Dto Listesine çeviriyor / list e ekliyor.
+                registerDtoList.add(entityToDto(entity));
+            }
+            return registerDtoList;
         }
-        // Eğer kullanıcı yoksa null döndersin
-        return null;
-    }
 
     // create
     @Override

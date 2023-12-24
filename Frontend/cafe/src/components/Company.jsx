@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import CompanyApi from '../services/CompanyApi';
 import Header from './Header.jsx'
 import Footer from "./Footer.jsx";
+// localStorage.setItem("id", 2);
 function Company() {
 
     //Const
@@ -25,7 +26,7 @@ function Company() {
         try {
             const response = await CompanyApi.companyFindBycompanyId(localStorage.getItem("id"))
             setApiListData(response.data);
-
+            console.log(apiListData);
         } catch (error) {
             console.error('Error fetching users:', error);
         }
@@ -66,14 +67,14 @@ function Company() {
     const userCreate = async () => {
         //Gönderilecek obje
         const userUpObject = {
+            "companyId": localStorage.getItem("id"),
             "food": foodUp,
-            "price": priceUp,
-
+            "price": priceUp
         }
         try {
             const response = await CompanyApi.companyFoodCreate(userUpObject);
             if (response.status == 200) {
-                alert("Güncellendi ");
+                alert("Eklendi ");
                 //Sayfa yenileniyor 
                 window.location.reload();
             }
@@ -113,7 +114,7 @@ function Company() {
             <div>
                 <Header />
             </div>
-            <div className="row app">
+            <div className="row app mt-5">
                 <div className="col col-6"><div>
                     <h1>Yemek  listesi</h1>
                     {/* Table */}
@@ -154,7 +155,7 @@ function Company() {
                         type="button"
                         className="btn btn-secondary"
                         data-bs-toggle="modal" data-bs-target="#ekleModal">
-                    
+
                         Ekle
                     </button>
                     {/* ////////////////////////////////////////////// */}
@@ -214,14 +215,14 @@ function Company() {
                                     >
                                         Kapat
                                     </button>
-                                    <button type="button" className="btn btn-primary" onClick={userUpdate} data-bs-dismiss="modal">
+                                    <button type="button" className="btn btn-primary" onClick={() => userUpdate()} data-bs-dismiss="modal">
                                         Güncelle
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                                      {/* ////////////////////////////////////////////// */}
+                    {/* ////////////////////////////////////////////// */}
                     {/* Modal  */}
                     <div
                         className="modal fade"
@@ -278,7 +279,7 @@ function Company() {
                                     >
                                         Kapat
                                     </button>
-                                    <button type="button" className="btn btn-primary" onClick={userCreate()} data-bs-dismiss="modal">
+                                    <button type="button" className="btn btn-primary" onClick={() => userCreate()} data-bs-dismiss="modal">
                                         Ekle
                                     </button>
                                 </div>

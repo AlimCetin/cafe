@@ -4,6 +4,7 @@ import Footer from "./Footer.jsx";
 import { Navigate, Route, Routes } from "react-router-dom";
 import CustomerApi from '../services/CustomerApi.js';
 import { useEffect } from 'react';
+// localStorage.setItem("id", 1);
 
 export default function Customer() {
  
@@ -52,8 +53,9 @@ export default function Customer() {
       {/* HEADER */}
       <div>
         <Header />
+
       </div>
-      <div className="row app">
+      <div className="row app mt-5">
         <div className="col col-6">
 
           <div>
