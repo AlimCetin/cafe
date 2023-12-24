@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Avatar from '@mui/material/Avatar';
+
+//Header componenti
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -7,7 +9,6 @@ class Header extends Component {
         }
     }
     render() {
-        // RETURN
         return (
 
             // Nav bar oluşturuldu.

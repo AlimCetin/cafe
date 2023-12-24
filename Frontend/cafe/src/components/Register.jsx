@@ -3,6 +3,7 @@ import './register.css'
 import { useNavigate } from 'react-router-dom';
 import UserApi from '../services/UserApi';
 
+// Kullanıcı kayıt componenti
 export default function Register() {
 
     const navigate = useNavigate();
@@ -11,7 +12,8 @@ export default function Register() {
     const [userName, setUserName] = useState();
     const [userType, setUserType] = useState();
 
-
+//////////////////////////////////////////////////////////////////////////////
+//Girilen değerlerin değişkenlere atanması
     const emailOnChange = (event) => {
         setemail(event.target.value);
     }
@@ -24,7 +26,8 @@ export default function Register() {
     const userTypeOnClick = (event) => {
         setUserType(event.target.value);
     }
-
+/////////////////////////////////////////////////////////////////////////////
+//Kullanıcı kayıtı 
     const registerOnClick = async (event) => {
         const userCreateObject = {
             "userName": userName,
@@ -44,7 +47,6 @@ export default function Register() {
             alert("Bağlantıda hata oluştu daha sonra tekrar deneyin..")
         }
     }
-
 
     return (
         <div className="container">

@@ -4,8 +4,8 @@ import Footer from "./Footer.jsx";
 import { Navigate, Route, Routes } from "react-router-dom";
 import CustomerApi from '../services/CustomerApi.js';
 import { useEffect } from 'react';
-// localStorage.setItem("id", 1);
 
+// Müşteri componenti
 export default function Customer() {
  
   const [apiListData, setApiListData] = useState([]);
@@ -19,10 +19,7 @@ export default function Customer() {
   useEffect(() => {
     fetchRegisterList();
   }, []);
-
-/////////////////////////////////////////////////
-  // Function
-  //Geçmiş data bilgileri getiriyor ve apiListData ya aktarıyor.
+  //Müşterinin geçmiş yemek listesi getiriyor ve apiListData ya aktarıyor.
   const fetchRegisterList = async () => {
     try {
       const response = await CustomerApi.customerFindBycustomerId(localStorage.getItem("id"))

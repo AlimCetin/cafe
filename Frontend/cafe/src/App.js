@@ -7,7 +7,7 @@ import Company from './components/Company'
 
 function App() {
 
-  
+  //  Burda router lar belirleniyor
   return (
     <div className="App">
          <Routes>

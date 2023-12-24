@@ -1,7 +1,6 @@
-// rcc
 import React, { Component } from 'react';
 
-// Class  Footer Component
+// Footer Componenti
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -15,10 +14,8 @@ class Footer extends Component {
         return new Date().getFullYear();
     }
 
-    // RENDER
     render() {
 
-        // RETURN
         return (
             // Footer
                 <footer className="bg-light text-center text-lg-start fixed-bottom">

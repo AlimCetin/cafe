@@ -4,12 +4,14 @@ import "./login.css"
 import UserApi from '../services/UserApi';
 import { useNavigate } from "react-router-dom";
 
+// Kullanıcı giriş componenti
 export default function Login() {
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
   let userData={};
   let navigate = useNavigate();
 
+  // Kullanıcı girişinin kontrol edilmesi ve yönlendirilmesi
   const loginControl = async (event) => {
     event.preventDefault();
       const response = await UserApi.userFindByEmail(email);

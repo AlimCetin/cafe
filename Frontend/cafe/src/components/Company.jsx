@@ -4,10 +4,8 @@ import React, { useEffect, useState } from 'react';
 import CompanyApi from '../services/CompanyApi';
 import Header from './Header.jsx'
 import Footer from "./Footer.jsx";
-// localStorage.setItem("id", 2);
+// Fimanın componenti
 function Company() {
-
-    //Const
     const [apiListData, setApiListData] = useState([]);
     const [userIdUp, setUserIdUp] = useState();
     const [foodUp, setFoodUp] = useState('');
@@ -18,10 +16,7 @@ function Company() {
     useEffect(() => {
         fetchRegisterList();
     }, []);
-
-    /////////////////////////////////////////////////
-    // Function
-    //Geçmiş data bilgileri getiriyor ve apiListData ya aktarıyor.
+    //firmanın kayıtlı olan yemek listesi getiriyor ve apiListData ya aktarıyor.
     const fetchRegisterList = async () => {
         try {
             const response = await CompanyApi.companyFindBycompanyId(localStorage.getItem("id"))
@@ -31,10 +26,8 @@ function Company() {
             console.error('Error fetching users:', error);
         }
     };
-    // OnChange
-    //Güncellenecek bilgilerin deişkenleri
+    //Güncellenecek bilgilerin değişkenleri
     //Girilen bilgileri değişkenlere set ediliyor. 
-    //userNameUp 
     const userFoodOnChange = (event) => {
         setFoodUp(event.target.value);
     }
@@ -64,6 +57,7 @@ function Company() {
         }
 
     }
+    //Kullanıcının girdiği  verileri database de ekleniyor
     const userCreate = async () => {
         //Gönderilecek obje
         const userUpObject = {
@@ -107,7 +101,6 @@ function Company() {
             setPriceUp(data.price);
         })
     }
-    // RETURN
     return (
         <div>
             {/* HEADER */}
@@ -292,6 +285,6 @@ function Company() {
             {/* FOOTER */}
             <Footer></Footer></div>
     )
-}
+} //End function
 
 export default Company;
